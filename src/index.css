@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-canvas text-ink font-sans text-[13px] leading-relaxed;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  ::selection {
+    background: rgba(59, 130, 246, 0.35);
+    color: #eef4ff;
+  }
+  :focus-visible {
+    outline: 2px solid rgba(96, 165, 250, 0.7);
+    outline-offset: 1px;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(12, 20, 36, 0.7);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e2c48;
+    border-radius: 6px;
+    border: 2px solid rgba(12, 20, 36, 0.9);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a3e63;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .ctrl-panel {
+    @apply rounded-lg border border-line bg-panel shadow-card;
+  }
+  .ctrl-title {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-faint;
+  }
+  .mono-num {
+    @apply font-mono tabular-nums;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded border border-line bg-panel-edge px-1.5 py-0.5 text-[10px] font-medium text-ink-dim;
+  }
+  .hairline {
+    @apply border-t border-line;
+  }
+}
+
+/* Control room grid backdrop */
+.control-room-bg {
+  background-color: #070c16;
+  background-image:
+    radial-gradient(1100px 520px at 12% -8%, rgba(41, 66, 128, 0.16), transparent 62%),
+    radial-gradient(900px 480px at 105% 8%, rgba(76, 41, 128, 0.12), transparent 60%);
+}
+.control-room-grid {
+  background-image:
+    linear-gradient(rgba(74, 96, 138, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 96, 138, 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.text-glow-green {
+  text-shadow: 0 0 12px rgba(42, 199, 111, 0.5);
+}
+.text-glow-red {
+  text-shadow: 0 0 12px rgba(240, 80, 110, 0.55);
+}
+.text-glow-blue {
+  text-shadow: 0 0 14px rgba(96, 165, 250, 0.5);
+}
+
+.signal-gradient {
+  background: linear-gradient(180deg, #101a30 0%, #0c1424 100%);
+}
+
+/* recharts theme overrides */
+.recharts-default-tooltip {
+  border-radius: 8px !important;
+}
+.recharts-cartesian-axis-tick text {
+  fill: #6c7e9e;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.recharts-cartesian-grid line {
+  stroke: rgba(28, 42, 68, 0.6);
+}
