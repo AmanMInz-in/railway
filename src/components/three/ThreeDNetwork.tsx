@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Line, OrbitControls, Html } from '@react-three/drei'
+import { Line, OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 import type { Train } from '@/types'
 import { ALL_LINKS, pointOnLink, linkBetween } from '@/data/links'
@@ -133,7 +133,6 @@ export function ThreeDNetwork({ enabled, trains }: { enabled: boolean; trains: T
         <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} minPolarAngle={Math.PI / 2.6} maxPolarAngle={Math.PI / 2.2} />
       </Canvas>
       <div className="pointer-events-none absolute left-3 top-3 rounded bg-panel/80 px-2 py-1 text-[9px] text-ink-faint backdrop-blur">3D SLOW ORBIT</div>
-      <Html />
     </div>
   )
 }

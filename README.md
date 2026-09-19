@@ -1,4 +1,4 @@
-# Railway AI Block Planner — Command Center
+# Railway AI Block Planner - Command Center
 
 **AI-Powered Automatic Railway Maintenance Block Planning & Optimization System**
 Indian Railways Operations Control Center · Smart India Hackathon build
@@ -15,16 +15,44 @@ A production-style dark command-center frontend that integrates **TMS** (track),
 - Framer Motion (fast, purposeful motion)
 - Lucide icons
 
-## Quick start
+## Run locally
+
+### Prerequisites
+
+- Node.js 18 or newer
+- npm 9 or newer
+
+### Install and start
+
+Run these commands from the project root, the folder containing `package.json`:
 
 ```bash
+cd G:\Projects\Railway\railway
 npm install
-npm run dev        # http://localhost:5173
-npm run build      # production bundle → dist/
-npm run preview    # serve dist/ on :4173
+npm run dev
 ```
 
-Login screen has pre-filled demo credentials (Employee ID `IR-29817`, any password ≥ 8 chars if changed).
+Open the URL printed by Vite, usually `http://localhost:5173`.
+
+Do not run `npm run dev` from the `src` folder. `src` contains application code, but it is not the Vite project root and does not contain `package.json`.
+
+### Other commands
+
+```bash
+npm run build      # type-check and create the production bundle in dist/
+npm run preview    # serve the production bundle locally
+```
+
+The login screen includes pre-filled demo credentials. Use employee ID `IR-29817` and any password with at least 8 characters if you change it.
+
+### Troubleshooting a blank page
+
+1. Stop any incorrectly started Vite process with `Ctrl+C`.
+2. Open a terminal in `G:\Projects\Railway\railway`, not `G:\Projects\Railway\railway\src`.
+3. Run `npm install`, then `npm run dev`.
+4. Open the exact local URL printed in the terminal and refresh the page.
+
+If the page is still blank, run `npm run build`. TypeScript or module errors will be printed in the terminal and should be fixed before starting the app again.
 
 ## Architecture
 
